@@ -9,6 +9,10 @@ export type Offer = {
   isBookMark: boolean;
   rating: number;
   city: string;
+  coordinates: {
+    latitude: number;
+    longitude: number;
+  };
   bedrooms: number;
   maxAdults: number;
   goods: string[];
@@ -31,6 +35,10 @@ export const offers: Offer[] = [
     isBookMark: false,
     rating: 4.8,
     city: 'Amsterdam',
+    coordinates: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+    },
     bedrooms: 3,
     maxAdults: 4,
     goods: ['Wi-Fi', 'Washing machine', 'Towels', 'Heating', 'Coffee machine', 'Baby seat', 'Kitchen', 'Dishwasher', 'Cabel TV', 'Fridge'],
@@ -51,6 +59,11 @@ export const offers: Offer[] = [
     isBookMark: true,
     rating: 4.0,
     city: 'Amsterdam',
+    coordinates: {
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
+    },
+
     bedrooms: 1,
     maxAdults: 2,
     goods: ['Wi-Fi', 'Washing machine', 'Towels'],
@@ -71,6 +84,10 @@ export const offers: Offer[] = [
     isBookMark: false,
     rating: 4.0,
     city: 'Cologne',
+    coordinates: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
+    },
     bedrooms: 2,
     maxAdults: 3,
     goods: ['Laptop friendly workspace', 'Breakfast'],
@@ -91,6 +108,10 @@ export const offers: Offer[] = [
     isBookMark: false,
     rating: 5.0,
     city: 'Hague',
+    coordinates: {
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
+    },
     bedrooms: 3,
     maxAdults: 5,
     goods: ['Washer', 'Towels', 'Fridge'],
