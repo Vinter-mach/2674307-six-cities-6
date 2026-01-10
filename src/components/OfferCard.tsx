@@ -3,10 +3,11 @@ import {Link} from 'react-router-dom';
 
 type PlaceCardProps = {
   offer: Offer;
+  onCard?: (id: string | null) => void;
 }
 
 function OfferCard(props: PlaceCardProps): JSX.Element {
-  const {offer} = props;
+  const {offer, onCard} = props;
 
   const {
     id,
@@ -19,8 +20,23 @@ function OfferCard(props: PlaceCardProps): JSX.Element {
     type
   } = offer;
 
+  const handleMouseEnter = () => {
+    if (onCard) {
+      onCard(id);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (onCard) {
+      onCard(null);
+    }
+  };
+
   return (
-    <article className="cities__card place-card">
+    <article className="cities__card place-card"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {isPremium &&
         (
           <div className="place-card__mark">
