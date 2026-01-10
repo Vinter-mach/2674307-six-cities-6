@@ -1,43 +1,53 @@
+import {Offer} from '../mocks/offers';
+import {Link} from 'react-router-dom';
+
 type PlaceCardProps = {
-  title: string;
-  type: string;
-  imageSrc: string;
-  price: number;
-  ratingPercent: number;
-  isPremium: boolean;
-  isBookMark: boolean;
+  offer: Offer;
 }
 
-function PlaceCard(props: PlaceCardProps): JSX.Element {
+function OfferCard(props: PlaceCardProps): JSX.Element {
+  const {offer} = props;
+
+  const {
+    id,
+    isPremium,
+    isBookMark,
+    imgSrc,
+    price,
+    rating,
+    title,
+    type
+  } = offer;
+
   return (
     <article className="cities__card place-card">
-      {props.isPremium &&
+      {isPremium &&
         (
           <div className="place-card__mark">
             <span>Premium</span>
           </div>
         )}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`/offer/${id}`}>
           <img
             className="place-card__image"
-            src={props.imageSrc}
+            src={imgSrc}
             width="260"
             height="200"
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{props.price}</b>
+            <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text"> &#47;&nbsp;night</span>
           </div>
           <button
             className={
               `place-card__bookmark-button ${
-                props.isBookMark
+                isBookMark
                   ? 'place-card__bookmark-button--active button'
                   : 'button'
               }`
@@ -52,23 +62,23 @@ function PlaceCard(props: PlaceCardProps): JSX.Element {
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
             <span className="visually-hidden">
-              {props.isBookMark ? 'In bookmarks' : 'To bookmarks'}
+              {isBookMark ? 'In bookmarks' : 'To bookmarks'}
             </span>
           </button>
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${props.ratingPercent}%`}}></span>
+            <span style={{width: `${Math.round(rating) * 20}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{props.title}</a>
+          <Link to={`/offer/${id}`}>{title}</Link>
         </h2>
-        <p className="place-card__type">{props.type}</p>
+        <p className="place-card__type">{type}</p>
       </div>
     </article>
   );
 }
 
-export default PlaceCard;
+export default OfferCard;
