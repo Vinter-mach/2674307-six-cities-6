@@ -1,10 +1,12 @@
-import PlaceCard from './PlaceCard.tsx';
+import OffersList from './OfferList';
+import {Offer} from '../mocks/offers';
 
 type MainPageProps = {
   offersCount: number;
+  offers: Offer[];
 }
 
-function MainPage({offersCount}: MainPageProps): JSX.Element {
+function MainPage({offersCount, offers}: MainPageProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -22,7 +24,7 @@ function MainPage({offersCount}: MainPageProps): JSX.Element {
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    <span className="header__favorite-count">3</span>
+                    <span className="header__favorite-count">{(offers.filter((offer) => offer.isBookMark)).length}</span>
                   </a>
                 </li>
                 <li className="header__nav-item">
@@ -94,54 +96,7 @@ function MainPage({offersCount}: MainPageProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-
-                <PlaceCard
-                  title="Beautiful & luxurious apartment at great location"
-                  type="Apartment"
-                  imageSrc="img/apartment-01.jpg"
-                  price={120}
-                  ratingPercent={80}
-                  isPremium
-                  isBookMark={false}
-                />
-                <PlaceCard
-                  title="Wood and stone place"
-                  type="Room"
-                  imageSrc="img/room.jpg"
-                  price={80}
-                  ratingPercent={80}
-                  isPremium={false}
-                  isBookMark
-                />
-                <PlaceCard
-                  title="Canal View Prinsengracht"
-                  type="Apartment"
-                  imageSrc="img/apartment-02.jpg"
-                  price={132}
-                  ratingPercent={80}
-                  isPremium={false}
-                  isBookMark={false}
-                />
-                <PlaceCard
-                  title="Nice, cozy, warm big bed apartment"
-                  type="Apartment"
-                  imageSrc="img/apartment-03.jpg"
-                  price={180}
-                  ratingPercent={100}
-                  isPremium
-                  isBookMark={false}
-                />
-                <PlaceCard
-                  title="Wood and stone place"
-                  type="Room"
-                  imageSrc="img/room.jpg"
-                  price={80}
-                  ratingPercent={80}
-                  isPremium={false}
-                  isBookMark
-                />
-              </div>
+              <OffersList offers={offers} className="cities__places-list places__list tabs__content"/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>

@@ -1,4 +1,3 @@
-import {JSX} from 'react';
 import MainPage from './MainPage.tsx';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import Login from './Login.tsx';
@@ -7,21 +6,22 @@ import Offer from './Offer.tsx';
 import NotFoundPage from './NotFoundPage.tsx';
 import PrivateRoute from './PrivateRoute.tsx';
 import {AuthorizationStatus} from '../const.ts';
-
+import {Offer as OfferType} from '../mocks/offers';
 
 type AppProps = {
   offersCount: number;
+  offers: OfferType[];
 };
 
-function App({offersCount}: AppProps): JSX.Element {
+function App({offersCount, offers}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage offersCount={offersCount}/>}/>
+        <Route path="/" element={<MainPage offersCount={offersCount} offers={offers}/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/favorites" element={
           <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-            <Favorites/>
+            <Favorites offers={offers}/>
           </PrivateRoute>
         }
         />
