@@ -1,4 +1,4 @@
-import {useRef, useEffect, JSX} from 'react';
+import {useRef, useEffect} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../hooks/useMap';

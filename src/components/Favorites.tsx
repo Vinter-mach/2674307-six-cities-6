@@ -1,4 +1,3 @@
-import {JSX} from 'react';
 import {Offer} from '../mocks/offers';
 import OffersList from './OfferList';
 import {Link} from 'react-router-dom';

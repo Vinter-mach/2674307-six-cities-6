@@ -19,7 +19,7 @@ export type Offer = {
   host: {
     name: string;
     isPro: boolean;
-    avatarUrl: string;
+    avatarImg: string;
   };
 };
 
@@ -45,7 +45,7 @@ export const offers: Offer[] = [
     host: {
       name: 'Angelina',
       isPro: true,
-      avatarUrl: 'img/avatar-angelina.jpg',
+      avatarImg: 'img/avatar-angelina.jpg',
     },
   },
   {
@@ -70,7 +70,7 @@ export const offers: Offer[] = [
     host: {
       name: 'Angelina',
       isPro: true,
-      avatarUrl: 'img/avatar-angelina.jpg',
+      avatarImg: 'img/avatar-angelina.jpg',
     },
   },
   {
@@ -83,7 +83,7 @@ export const offers: Offer[] = [
     isPremium: false,
     isBookMark: false,
     rating: 4.0,
-    city: 'Cologne',
+    city: 'Amsterdam',
     coordinates: {
       latitude: 52.3909553943508,
       longitude: 4.929309666406198,
@@ -94,7 +94,7 @@ export const offers: Offer[] = [
     host: {
       name: 'Angelina',
       isPro: true,
-      avatarUrl: 'img/avatar-angelina.jpg',
+      avatarImg: 'img/avatar-angelina.jpg',
     },
   },
   {
@@ -107,7 +107,7 @@ export const offers: Offer[] = [
     isPremium: true,
     isBookMark: false,
     rating: 5.0,
-    city: 'Hague',
+    city: 'Amsterdam',
     coordinates: {
       latitude: 52.3809553943508,
       longitude: 4.939309666406198,
@@ -118,7 +118,7 @@ export const offers: Offer[] = [
     host: {
       name: 'Angelina',
       isPro: true,
-      avatarUrl: 'img/avatar-angelina.jpg',
+      avatarImg: 'img/avatar-angelina.jpg',
     },
   },
 ];

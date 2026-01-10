@@ -3,7 +3,7 @@ import {Offer} from '../mocks/offers';
 import {useState} from 'react';
 import FavoriteCard from './FavoriteCard.tsx';
 
-type CardType = 'cities' | 'favorites';
+type CardType = 'cities' | 'favorites' | 'near-places';
 
 type OffersListProps = {
   offers: Offer[];
@@ -12,7 +12,7 @@ type OffersListProps = {
 };
 
 function OffersList({offers, className, type = 'cities'}: OffersListProps): JSX.Element {
-  const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
+  const [, ] = useState<string | null>(null);
 
   return (
     <div className={className}>

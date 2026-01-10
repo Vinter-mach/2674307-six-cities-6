@@ -7,13 +7,15 @@ import NotFoundPage from './NotFoundPage.tsx';
 import PrivateRoute from './PrivateRoute.tsx';
 import {AuthorizationStatus} from '../const.ts';
 import {Offer as OfferType} from '../mocks/offers';
+import {Review} from '../mocks/reviews.ts';
 
 type AppProps = {
   offersCount: number;
   offers: OfferType[];
+  reviews: Review[];
 };
 
-function App({offersCount, offers}: AppProps): JSX.Element {
+function App({offersCount, offers, reviews}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -25,7 +27,7 @@ function App({offersCount, offers}: AppProps): JSX.Element {
           </PrivateRoute>
         }
         />
-        <Route path="/offer/:id" element={<Offer/>}/>
+        <Route path="/offer/:id" element={<Offer offers={offers} reviews={reviews}/>}/>
         <Route path="*" element={<NotFoundPage/>}/>
       </Routes>
     </BrowserRouter>

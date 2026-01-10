@@ -3,10 +3,11 @@ import {Link} from 'react-router-dom';
 
 type PlaceCardProps = {
   offer: Offer;
+  className?: string;
 }
 
 function OfferCard(props: PlaceCardProps): JSX.Element {
-  const {offer} = props;
+  const {offer, className = 'cities__card'} = props;
 
   const {
     id,
@@ -20,7 +21,7 @@ function OfferCard(props: PlaceCardProps): JSX.Element {
   } = offer;
 
   return (
-    <article className="cities__card place-card">
+    <article className={`${className} place-card`}>
       {isPremium &&
         (
           <div className="place-card__mark">
