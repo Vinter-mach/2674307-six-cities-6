@@ -1,9 +1,9 @@
-import {Offer} from '../mocks/offers';
+import {OfferType} from '../mocks/offers';
 import OffersList from './OfferList';
 import {Link} from 'react-router-dom';
 
 type FavoritesProps = {
-  offers: Offer[];
+  offers: OfferType[];
 };
 
 function Favorites({offers}: FavoritesProps): JSX.Element {

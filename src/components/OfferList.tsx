@@ -1,12 +1,12 @@
 import OfferCard from './OfferCard.tsx';
-import {Offer} from '../mocks/offers';
+import {OfferType} from '../mocks/offers';
 import {useState} from 'react';
 import FavoriteCard from './FavoriteCard.tsx';
 
 type CardType = 'cities' | 'favorites' | 'near-places';
 
 type OffersListProps = {
-  offers: Offer[];
+  offers: OfferType[];
   className: string;
   type?: CardType;
 };

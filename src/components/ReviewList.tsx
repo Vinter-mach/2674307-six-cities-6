@@ -1,4 +1,5 @@
-import ReviewItem, {Review} from './ReviewItem.tsx';
+import ReviewItem from './ReviewItem.tsx';
+import {Review} from '../mocks/reviews.ts';
 
 type ReviewsListProps = {
   reviews: Review[];

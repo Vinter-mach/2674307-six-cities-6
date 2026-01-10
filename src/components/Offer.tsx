@@ -1,24 +1,7 @@
-import {Link, Navigate, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ReviewForm from './ReviewForm.tsx';
-import ReviewList from './ReviewList.tsx';
-import {Review} from '../mocks/reviews.ts';
-import {Offer} from '../mocks/offers.ts';
 
-type OfferProps = {
-  offers: Offer[];
-  reviews: Review[];
-}
-
-function Offer(props: OfferProps): JSX.Element {
-  const {offers, reviews} = props;
-
-  const {id} = useParams();
-  const curOffer = offers.find((offer) => offer.id === id);
-
-  if (!curOffer) {
-    return <Navigate to="/NotFoundPage"/>;
-  }
-
+function Offer(): JSX.Element {
   return (
     <div className="page">
       <header className="header">
@@ -54,23 +37,34 @@ function Offer(props: OfferProps): JSX.Element {
         <section className="offer">
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
-              {curOffer.images && curOffer.images.slice(0, 6).map((image) => (
-                <div className="offer__image-wrapper" key={image}>
-                  <img className="offer__image" src={image} alt="Photo studio"/>
-                </div>
-              ))}
+              <div className="offer__image-wrapper">
+                <img className="offer__image" src="img/room.jpg" alt="Photo studio"/>
+              </div>
+              <div className="offer__image-wrapper">
+                <img className="offer__image" src="img/apartment-01.jpg" alt="Photo studio"/>
+              </div>
+              <div className="offer__image-wrapper">
+                <img className="offer__image" src="img/apartment-02.jpg" alt="Photo studio"/>
+              </div>
+              <div className="offer__image-wrapper">
+                <img className="offer__image" src="img/apartment-03.jpg" alt="Photo studio"/>
+              </div>
+              <div className="offer__image-wrapper">
+                <img className="offer__image" src="img/studio-01.jpg" alt="Photo studio"/>
+              </div>
+              <div className="offer__image-wrapper">
+                <img className="offer__image" src="img/apartment-01.jpg" alt="Photo studio"/>
+              </div>
             </div>
           </div>
           <div className="offer__container container">
             <div className="offer__wrapper">
-              {curOffer.isPremium && (
-                <div className="offer__mark">
-                  <span>Premium</span>
-                </div>
-              )}
+              <div className="offer__mark">
+                <span>Premium</span>
+              </div>
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">
-                  {curOffer.title}
+                  Beautiful &amp; luxurious studio at great location
                 </h1>
                 <button className="offer__bookmark-button button" type="button">
                   <svg className="offer__bookmark-icon" width="31" height="33">
@@ -81,50 +75,75 @@ function Offer(props: OfferProps): JSX.Element {
               </div>
               <div className="offer__rating rating">
                 <div className="offer__stars rating__stars">
-                  <span style={{width: Math.round(curOffer.rating) * 20}}></span>
+                  <span style={{width: '80%'}}></span>
                   <span className="visually-hidden">Rating</span>
                 </div>
-                <span className="offer__rating-value rating__value">{curOffer.rating}</span>
+                <span className="offer__rating-value rating__value">4.8</span>
               </div>
               <ul className="offer__features">
                 <li className="offer__feature offer__feature--entire">
-                  {curOffer.type}
+                  Apartment
                 </li>
                 <li className="offer__feature offer__feature--bedrooms">
-                  {curOffer.bedrooms} Bedrooms
+                  3 Bedrooms
                 </li>
                 <li className="offer__feature offer__feature--adults">
-                  Max {curOffer.maxAdults} adults
+                  Max 4 adults
                 </li>
               </ul>
               <div className="offer__price">
-                <b className="offer__price-value">&euro;{curOffer.price}</b>
+                <b className="offer__price-value">&euro;120</b>
                 <span className="offer__price-text">&nbsp;night</span>
               </div>
               <div className="offer__inside">
                 <h2 className="offer__inside-title">What&apos;s inside</h2>
                 <ul className="offer__inside-list">
-                  {curOffer.goods.map((good) => (
-                    <li className="offer__inside-item" key={good}>
-                      {good}
-                    </li>
-                  ))}
+                  <li className="offer__inside-item">
+                    Wi-Fi
+                  </li>
+                  <li className="offer__inside-item">
+                    Washing machine
+                  </li>
+                  <li className="offer__inside-item">
+                    Towels
+                  </li>
+                  <li className="offer__inside-item">
+                    Heating
+                  </li>
+                  <li className="offer__inside-item">
+                    Coffee machine
+                  </li>
+                  <li className="offer__inside-item">
+                    Baby seat
+                  </li>
+                  <li className="offer__inside-item">
+                    Kitchen
+                  </li>
+                  <li className="offer__inside-item">
+                    Dishwasher
+                  </li>
+                  <li className="offer__inside-item">
+                    Cabel TV
+                  </li>
+                  <li className="offer__inside-item">
+                    Fridge
+                  </li>
                 </ul>
               </div>
               <div className="offer__host">
                 <h2 className="offer__host-title">Meet the host</h2>
                 <div className="offer__host-user user">
                   <div className="offer__avatar-wrapper offer__avatar-wrapper--pro user__avatar-wrapper">
-                    <img className="offer__avatar user__avatar" src={curOffer.host.avatarImg} width="74" height="74"
+                    <img className="offer__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74"
                       alt="Host avatar"
                     />
                   </div>
                   <span className="offer__user-name">
-                    {curOffer.host.name}
+                    Angelina
                   </span>
-                  {curOffer.host.isPro && (
-                    <span className="offer__user-status">Pro</span>
-                  )}
+                  <span className="offer__user-status">
+                    Pro
+                  </span>
                 </div>
                 <div className="offer__description">
                   <p className="offer__text">
@@ -138,8 +157,35 @@ function Offer(props: OfferProps): JSX.Element {
                 </div>
               </div>
               <section className="offer__reviews reviews">
-                <ReviewList reviews={reviews}/>
-                <ReviewForm/>
+                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
+                <ul className="reviews__list">
+                  <li className="reviews__item">
+                    <div className="reviews__user user">
+                      <div className="reviews__avatar-wrapper user__avatar-wrapper">
+                        <img className="reviews__avatar user__avatar" src="img/avatar-max.jpg" width="54" height="54"
+                          alt="Reviews avatar"
+                        />
+                      </div>
+                      <span className="reviews__user-name">
+                        Max
+                      </span>
+                    </div>
+                    <div className="reviews__info">
+                      <div className="reviews__rating rating">
+                        <div className="reviews__stars rating__stars">
+                          <span style={{width: '80%'}}></span>
+                          <span className="visually-hidden">Rating</span>
+                        </div>
+                      </div>
+                      <p className="reviews__text">
+                        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
+                        The building is green and from 18th century.
+                      </p>
+                      <time className="reviews__time" dateTime="2019-04-24">April 2019</time>
+                    </div>
+                  </li>
+                </ul>
+                <ReviewForm />
               </section>
             </div>
           </div>

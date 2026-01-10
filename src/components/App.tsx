@@ -6,7 +6,7 @@ import Offer from './Offer.tsx';
 import NotFoundPage from './NotFoundPage.tsx';
 import PrivateRoute from './PrivateRoute.tsx';
 import {AuthorizationStatus} from '../const.ts';
-import {Offer as OfferType} from '../mocks/offers';
+import {OfferType} from '../mocks/offers';
 import {Review} from '../mocks/reviews.ts';
 
 type AppProps = {

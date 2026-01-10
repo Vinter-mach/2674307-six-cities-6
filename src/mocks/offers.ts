@@ -1,4 +1,4 @@
-export type Offer = {
+export type OfferType = {
   id: string;
   title: string;
   type: string;
@@ -23,7 +23,7 @@ export type Offer = {
   };
 };
 
-export const offers: Offer[] = [
+export const offers: OfferType[] = [
   {
     id: '1',
     title: 'Beautiful & luxurious studio at great location',

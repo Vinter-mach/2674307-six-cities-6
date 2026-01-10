@@ -2,10 +2,10 @@ import {useRef, useEffect} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../hooks/useMap';
-import {Offer} from '../mocks/offers';
+import {OfferType} from '../mocks/offers';
 
 type MapProps = {
-  offers: Offer[];
+  offers: OfferType[];
 
 };
 

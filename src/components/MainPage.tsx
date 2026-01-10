@@ -1,10 +1,10 @@
 import OffersList from './OfferList';
-import {Offer} from '../mocks/offers';
+import {OfferType} from '../mocks/offers';
 import Map from './Map.tsx';
 
 type MainPageProps = {
   offersCount: number;
-  offers: Offer[];
+  offers: OfferType[];
 }
 
 function MainPage({offersCount, offers}: MainPageProps): JSX.Element {
